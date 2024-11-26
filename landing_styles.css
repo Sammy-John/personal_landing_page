@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #1b1b1b;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+#hero {
+    background-image: url('background_dark.webp'); /* Replace with your updated image URL */
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.hero-content h1, .button-group {
+    animation: fadeInWithBlur 2.5s ease-out, riseUp 2.5s ease-out;
+}
+
+
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn, .btn-secondary {
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    background-color: #ff00ff;
+    color: #fff;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #e87ce8;
+    transform: translateY(-5px);
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #1b1b1b;
+    border: 2px solid #ff00ff;
+}
+
+.btn-secondary:hover {
+    color: #ff00ff;
+    transform: translateY(-5px);
+}
+
+.intro {
+    position: relative; /* Ensure it is positioned relative to its container */
+    padding: 60px 0;
+    text-align: center;
+    background: transparent;
+    color: white;
+}
+
+
+
+.intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.intro p {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.intro h2 {
+    animation: slideInFromLeft 1.5s ease-out;
+}
+
+.intro p {
+    animation: slideInFromRight 1.5s ease-out;
+}
+
+footer {
+    background-color: #1b1b1b;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    border-top: 2px solid #ff00ff;
+    flex-shrink: 0;
+}
+
+footer p {
+    margin: 10px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Add space between icons */
+}
+
+.social-link, .email-link {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover, .email-link:hover {
+    color: #ff00ff;
+}
+
+/* Animations */
+/* Fade-in effect with opacity and blur */
+@keyframes fadeInWithBlur {
+    0% {
+        opacity: 0;
+        filter: blur(10px); /* Start blurry */
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0); /* End sharp */
+    }
+}
+
+/* Rise-up effect */
+@keyframes riseUp {
+    0% {
+        transform: translateY(150px); /* Start lower */
+    }
+    100% {
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+
+
+/* Slide-in from left for h2 */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide-in from right for p */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(150px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animations */
+.intro h2 {
+    opacity: 0; /* Ensure it's hidden initially */
+    animation: slideInFromLeft 2s ease-out forwards; /* Ensure the animation completes */
+}
+
+.intro p {
+    opacity: 0; /* Ensure it's hidden initially */
+    animation: slideInFromRight 2s ease-out forwards; /* Ensure the animation completes */
+}
+
+
+
+/* For tablets and larger phones (768px and below) */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem; /* Scale down the heading */
+    }
+    .hero-content h2 {
+        font-size: 1.8rem; /* Adjust subtitle size */
+    }
+    .btn, .btn-secondary {
+        font-size: 0.9rem; /* Slightly smaller buttons for mobile */
+    }
+
+    /* Responsive typography for intro section */
+    .intro h2 {
+        font-size: 2rem; /* Adjusted size for tablets */
+    }
+    .intro p {
+        font-size: 1rem; /* Adjust paragraph size for tablets */
+    }
+    footer p {
+        font-size: 0.9rem; /* Adjust font size for tablets */
+    }
+
+    .social-link, .email-link {
+        font-size: 1.8rem; /* Slightly smaller icons for tablets */
+    }
+}
+
+/* For small phones (480px and below) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem; /* Further scale down the heading */
+    }
+    .hero-content h2 {
+        font-size: 1.5rem; /* Smaller subtitle for phones */
+    }
+    .btn, .btn-secondary {
+        font-size: 0.85rem; /* Slightly smaller buttons for small phones */
+    }
+
+    /* Responsive typography for intro section */
+    .intro h2 {
+        font-size: 1.8rem; /* Smaller heading for phones */
+    }
+    .intro p {
+        font-size: 0.9rem; /* Smaller paragraph text for phones */
+    }
+    footer p {
+        font-size: 0.85rem; /* Smaller font size for phones */
+    }
+
+    /* Increase icon size on small phones */
+    .social-link {
+        font-size: 2rem; /* Bigger icons for phones */
+    }
+
+    /* Make email link fit better */
+    .email-link {
+        font-size: 1.2rem; /* Smaller size for email */
+        text-align: center;
+        word-wrap: break-word; /* Allow email to break if it's too long */
+        width: 100%; /* Ensure email link takes up full width */
+    }
+
+    .contact-info {
+        flex-direction: row; /* Keep LinkedIn and GitHub on the same row */
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Ensure LinkedIn and GitHub don't wrap */
+    .social-link:nth-child(1),
+    .social-link:nth-child(2) {
+        white-space: nowrap; /* Prevent wrapping */
+        flex-basis: auto; /* Allow flexibility */
+    }
+
+    /* Ensure email wraps onto its own row */
+    .email-link {
+        display: block;
+        margin-top: 10px; /* Add space above the email link */
+    }
+}
+
+/* Default styling: all buttons on the same row for larger screens */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+}
