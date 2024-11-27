@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap');
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -13,7 +17,7 @@ body {
 }
 
 #hero {
-    background-image: url('background_dark.webp'); /* Replace with your updated image URL */
+    background-image: url('./images/background_dark.webp'); 
     background-size: cover;
     background-position: center;
     flex: 1;
@@ -23,7 +27,7 @@ body {
     position: relative;
     text-align: center;
     color: #fff;
-    padding: 20px;
+    padding: clamp(10px, 5vw, 20px);
 }
 
 .hero-content h1, .button-group {
@@ -34,12 +38,12 @@ body {
 
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem); /* Min: 2rem, Preferred: 5vw, Max: 4rem */
     font-weight: 700;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px clamp(3px, 1vw, 5px) rgba(0, 0, 0, 0.3);
 }
 
 .hero-content p {
@@ -54,13 +58,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: clamp(10px, 3vw, 20px);
 }
 
 .btn, .btn-secondary {
-    padding: 15px 30px;
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 5vw, 30px);
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     text-decoration: none;
@@ -94,7 +98,7 @@ body {
 
 .intro {
     position: relative; /* Ensure it is positioned relative to its container */
-    padding: 60px 0;
+    padding: clamp(30px, 5vw, 60px) 0;
     text-align: center;
     background: transparent;
     color: white;
@@ -104,11 +108,11 @@ body {
 
 .intro h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* Min: 1.5rem, Preferred: 4vw, Max: 2.5rem */
     margin-bottom: 20px;
 }
 .intro p {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     font-family: 'Montserrat', sans-serif;
     margin: 0 auto;
     max-width: 800px;
@@ -126,7 +130,7 @@ footer {
     background-color: #1b1b1b;
     color: #fff;
     text-align: center;
-    padding: 30px 0;
+    padding: clamp(20px, 4vw, 30px) 0;
     border-top: 2px solid #ff00ff;
     flex-shrink: 0;
 }
@@ -134,7 +138,7 @@ footer {
 footer p {
     margin: 10px 0;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
 }
 
 .contact-info {
@@ -142,12 +146,12 @@ footer p {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 20px; /* Add space between icons */
+    gap: clamp(10px, 2vw, 20px);
 }
 
 .social-link, .email-link {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -308,4 +312,11 @@ footer p {
     display: flex;
     justify-content: center;
     gap: 20px; /* Space between buttons */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }

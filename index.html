@@ -12,45 +12,63 @@
     <!-- Social Media Meta Tags (for sharing on social platforms) -->
     <meta property="og:title" content="Sammy John Rawlinson - Full Stack Developer and Digital and Web Experience Designer">
     <meta property="og:description" content="Discover Sammy John Rawlinson's journey as a Full Stack Developer and Web Experience Designer, crafting digital solutions and innovative web applications.">
-    <meta property="og:image" content="export_logo.jpeg"> <!-- Add a relevant image -->
-    <meta property="og:url" content="https://yourwebsite.com">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content=".images/thumbnails/sammy_john_rawlinson.webp"> 
+    <meta property="og:url" content="https://sammy-john.github.io/personal_landing_page/">
+    <meta name="twitter:card" content=".images/thumbnails/sammy_john_rawlinson.webp">
 
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://sammy-john.github.io/personal_landing_page/">
+
+    <!-- Stylesheets-->
     <link rel="stylesheet" href="landing_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+
+    <!-- Standard favicon -->
+    <link rel="icon" href="./images/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Modern browser support -->
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="./images/favicon/apple-touch-icon.png">
+
+    <!-- Preload-->
+    <link rel="preload" href="./images/background_dark.webp" as="image" type="image/webp">
+    <link rel="preload" href="landing_styles.css" as="style">
+
 </head>
 <body>
     <section id="hero">
         <div class="hero-content">
             <h1>Sammy John Rawlinson</h1>
             <div class="button-group">
-                <a href="cv.html" class="btn">Resume</a>
-                <a href="./blog/output/index.html" class="btn-secondary">Discover My Journey</a>
-                <a href="#" class="btn">Portfolio</a>
+                <a href="cv.html" class="btn" aria-label="View my resume">Resume</a>
+                <a href="./blog/output/index.html" class="btn-secondary" aria-label="Discover my blog">Discover My Journey</a>
+                <a href="#" class="btn" aria-label="Explore my portfolio showcasing my work">Portfolio</a>
             </div>
             <div class="intro">
                 <h2>Transforming Ideas Into Digital Experiences</h2>
                 <p>Ready to explore my journey? Check out my portfolio or learn more about me.</p>
-        </div>
+            </div>
     </section>
 
     <footer>
         <div class="container">
             <p>Connect with me on LinkedIn, explore my work on GitHub, or reach out via email.</p>
             <div class="contact-info">
-                <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="social-link">
+                <a href="https://www.linkedin.com/in/sammyjohnrawlinson/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit my LinkedIn profile to learn more about my professional experience">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/your-profile" target="_blank" class="social-link">
+                <a href="https://github.com/Sammy-John" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit my GitHub profile to explore my projects and code repositories">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="mailto:sammyjohn123@protonmail.com" class="email-link">
-                    <i class="fas fa-envelope"></i> sammyjohn123@protonmail.com
+                <a href="mailto:sjr.dev@protonmail.com"  class="email-link" aria-label="Send an email to Sammy John Rawlinson at sjr.dev@protonmail.com">
+                    <i class="fas fa-envelope"></i> sjr.dev@protonmail.com
                 </a>
             </div>
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+
 </body>
 </html>
