@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Healthcare IoT App",
+        "description": "Design Interaction Project focus on UI/UX Design. Concept for a Healthcare IoT App using Raspberry Pi that I plan to continue with development.",
+        "date": "March, 2024",
+        "demoLink": "https://nabutech.github.io/Healthcare_IoT_App_Project/",
+        "githubLink": "https://github.com/NabuTech/Healthcare_IoT_App_Project",
+        "image": "/portfolio/images/Healthcare_iot_app.png",
+        "skills": ["HTML/CSS", "UI/UX Design"]
+    },
+    {
+        "title": "Original Portfolio",
+        "description": "My original Portfolio Design with links to my Diploma Final Project (MERN) and a design for friends website.",
+        "date": "Jan, 2023",
+        "demoLink": "https://nabutech.github.io/portfolio/",
+        "githubLink": "https://github.com/NabuTech/portfolio",
+        "image": "/portfolio/images/original_portfolio.png",
+        "skills": ["HTML/CSS", "SCSS", "JavaScript", "React", "Node.js", "MongoDB" ]
+    },
+    {
+        "title": "Immigration Prototype",
+        "description": "Internship Final Project - Prototype for Integrated internal systems with Customer facing site. ",
+        "date": "Sep, 2024",
+        "demoLink": "https://github.com/Sammy-John/immigration_prototype",
+        "githubLink": "https://github.com/Sammy-John/immigration_prototype",
+        "image": "/portfolio/images/Immigration_Prototype.png",
+        "skills": ["HTML/CSS", "Python", "Django", "SQLite", "PostgreSQL"  ]
+    }
+]

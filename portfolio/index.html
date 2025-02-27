@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfoliocss.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="scrollToTop(event)">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="blog-link">
+                    <a href="https://sammyjohnrawlinson.teknabu.com/blog/">
+                        Blog <i class="fas fa-book-open"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Fixed header (for scrolling state) -->
+    <div id="fixed-header">
+        <nav>
+            <ul>
+                <li><a href="#" onclick="scrollToTop(event)">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    
+
+    <section id="about">
+        <div class="about-container">
+            <!-- Left Column -->
+            <div class="about-left">
+                <div class="profile-pic">
+                    <img src="./images/me.jpg" alt="Profile Picture">
+                </div>
+                <h2>Who am I?</h2>
+                <p>
+                    Hi, I’m Sammy John Rawlinson! I’m a developer who loves building innovative solutions. Whether it's sleek front-end interfaces or powerful back-end systems, I thrive on turning ideas into efficient, user-friendly apps using <strong>React</strong>, <strong>Node.js</strong>, and <strong>HTML5</strong>.
+                </p>
+            </div>
+    
+            <!-- Right Column -->
+            <div class="about-right">
+                <!-- Skills will be dynamically inserted here -->
+            </div>
+            
+    </section>
+    <div id="sticky-header">
+        <div id="filter-row"></div> <!-- Dynamic filter tags will go here -->
+    </div>
+    <section id="projects">
+        <div class="project-list"></div> <!-- Dynamic project cards will go here -->
+    </section>
+    
+        
+    <footer class="site-footer">
+        <div class="footer-left" id="contact">
+            <h4>Contact</h4>
+            <a href="mailto:sjr.dev@protonmail.com" class="email-link" aria-label="Send an email to Sammy John Rawlinson">
+                <i class="fas fa-envelope"></i> sjr.dev@protonmail.com
+            </a>
+        </div>
+        <div class="footer-right">
+            <h4>Follow</h4>
+            <div class="social-links">
+                <a href="https://x.com/nabu_tech" target="_blank" aria-label="Follow on Twitter">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+                <a href="https://www.linkedin.com/in/sammyjohnrawlinson/" target="_blank" aria-label="Follow on LinkedIn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Sammy-John" target="_blank" aria-label="Follow on GitHub">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-address">
+                <p>&copy; 2024 Sammy John Rawlinson</p>
+                <div class="logo-container">
+                    <div class="logo-static" aria-hidden="true"></div>
+                    <p class="logo-text-static">
+                        <span>e</span><span>k</span><span>N</span><span>a</span><span>b</span><span>u</span>
+                    </p>
+                </div>
+                <p>All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="portfolioscript.js"></script>
+    <script src="projectscript.js"></script>
+</body>
+</html>

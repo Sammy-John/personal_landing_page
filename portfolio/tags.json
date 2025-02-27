@@ -1,0 +1,58 @@
+[
+    {
+        "name": "React",
+        "color": "#61DAFB",
+        "icon": "fab fa-react"
+    },
+    {
+        "name": "JavaScript",
+        "color": "#F7DF1E",
+        "textColor": "#000",
+        "icon": "fab fa-js"
+    },
+    {
+        "name": "Node.js",
+        "color": "#3C873A",
+        "icon": "fab fa-node"
+    },
+    {
+        "name": "HTML/CSS",
+        "color": "#3498db",
+        "icon": "fas fa-globe"
+    },
+    {
+        "name": "UI/UX Design",
+        "color": "#E91E63",
+        "icon": "fas fa-paint-brush"
+    },
+    {
+        "name": "SCSS",
+        "color": "#CF649A",
+        "icon": "fab fa-sass"
+    },
+    {
+        "name": "MongoDB",
+        "color": "#47A248",
+        "icon": "fas fa-database" 
+    },
+    {
+        "name": "Python",
+        "color": "#3776AB",
+        "icon": "fab fa-python"
+    },
+    {
+        "name": "Django",
+        "color": "#092E20",
+        "icon": "fas fa-python"
+    },
+    {
+        "name": "SQLite",
+        "color": "#003B57",
+        "icon": "fas fa-database"
+    },
+    {
+        "name": "PostgreSQL",
+        "color": "#336791",
+        "icon": "fas fa-database"
+    }
+]

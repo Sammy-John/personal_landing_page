@@ -1,0 +1,933 @@
+:root {
+    /* Root Colors */
+    --color-background: #f4f4f4;
+    --color-secondary-background: #e4e4e4;
+    --color-background-dark: #020617; /* Dark Card Background */
+    --color-text-primary: #212529;
+    --color-text-secondary: #ffffff;
+    --color-accent: #ff00ff; /* Neon Pink */
+    --color-border-highlight: #00ffff; /* Neon Cyan */
+    --color-accent-light: #00cccc; /* Lighter Cyan */
+    --color-tag-background: rgba(0, 255, 255, 0.1);
+    --color-footer-background: #020617;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Body Styling */
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--color-background);
+    color:var(--color-text-primary);
+    line-height: 1.6;
+    scroll-snap-type: y mandatory;
+}
+/* General Header Styles */
+header, #fixed-header {
+    background-color: var(--color-background-dark);
+    padding: 10px 0;
+    border-bottom: 4px solid var(--color-border-highlight);
+    position: relative;
+    z-index: 10;
+}
+
+header nav ul, #fixed-header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+header nav ul li, #fixed-header nav ul li {
+    margin: 0 20px;
+}
+
+header nav ul li a, #fixed-header nav ul li a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for all links */
+header nav ul li a:hover, #fixed-header nav ul li a:hover {
+    color: var(--color-accent);
+}
+
+/* Active state for Projects link */
+header nav ul li a.active, #fixed-header nav ul li a.active {
+    color: var(--color-accent); /* Accent color for active link */
+    transform: scale(1.1); /* Slight scaling for emphasis */
+    position: relative; /* Required for pseudo-element positioning */
+}
+
+/* Add animated underline for active link */
+header nav ul li a.active::after, #fixed-header nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Position below the text */
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+/* Expand the underline when the link becomes active */
+header nav ul li a.active:hover::after, #fixed-header nav ul li a.active:hover::after {
+    transform: scaleX(1);
+}
+
+/* Differentiation for Blog Link */
+.blog-link a {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Add space between text and icon */
+    color: var(--color-accent); /* Accent color for differentiation */
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.blog-link a:hover {
+    color: var(--color-accent-light); /* Lighter accent on hover */
+    transform: translateY(-2px); /* Slight hover effect */
+}
+
+.blog-link a i {
+    font-size: 16px; /* Icon size */
+}
+
+/* Fixed Header (for scrolling state) */
+#fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none; /* Hidden by default */
+    z-index: 100;
+    background-color: var(--color-secondary-background); /* Secondary background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 10px 0;
+}
+
+/* Links inside Fixed Header */
+#fixed-header nav ul li a {
+    color: var(--color-accent); /* Accent color for contrast */
+    text-transform: uppercase; /* Optional: Different styling for fixed header */
+    font-weight: bold;
+    font-size: 16px; /* Slightly smaller for mobile */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for fixed header links */
+#fixed-header nav ul li a:hover {
+    color: var(--color-accent-light); /* Lighter cyan for hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Show Fixed Header on Scroll */
+body.scrolled #fixed-header {
+    display: block; /* Show fixed header when scrolled */
+}
+
+/* Mobile-Specific Adjustments */
+@media (max-width: 768px) {
+    #fixed-header nav ul {
+        justify-content: space-around; /* Space links evenly */
+    }
+
+    #fixed-header nav ul li a {
+        font-size: 14px; /* Slightly smaller for narrow screens */
+        padding: 5px; /* Add touch-friendly padding */
+    }
+}
+
+
+/* Section Styling */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#home {
+    background-color: #f4f4f4;
+}
+
+#contact {
+    background-color: #e4e4e4;
+}
+
+#blog {
+    background-color: #fff;
+}
+
+/* About Section Styling */
+#about {
+    padding: 50px;
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: center;     /* Center vertically */
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between; /* Maintain space between the left and right */
+    align-items: center;            /* Vertically align the content in the middle */
+    max-width: 1200px;              /* Optional: set a max-width for the container */
+    width: 100%;
+}
+
+.about-left, .about-right {
+    width: 45%;
+    opacity: 0;
+}
+
+.about-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center profile picture and other elements */
+    animation: slideInLeft 1s forwards;
+}
+
+/* Profile Picture Styling */
+.profile-pic {
+    border-radius: 50%; /* Circular shape */
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-right {
+    animation: slideInRight 1s forwards;
+}
+
+/* Skills Section */
+.skill {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.label {
+    width: 100px;
+    color: #ffffff; /* White label color */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.progress-container {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    position: relative;
+    border-radius: 5px;
+    background-color: rgba(0, 255, 255, 0.1); /* Faded background */
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #00ffff; /* Neon Cyan for progress */
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+    width: 0; /* Start at 0 for animation */
+    transition: width 2s ease-in-out;
+}
+
+.empty-space {
+    background-color: rgba(0, 255, 255, 0.1); /* Faded color for remaining space */
+    height: 100%;
+    flex-grow: 1;
+}
+
+/* Responsive Queries */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center; /* Center align items for mobile */
+    }
+
+    .about-left, .about-right {
+        width: 100%;
+        text-align: center; /* Center text on mobile */
+    }
+
+    .about-left {
+        align-items: center; /* Ensure profile picture stays centered on mobile */
+    }
+}
+
+
+/* Skills Section */
+.skill {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.label {
+    width: 100px;
+    color: #ff00ff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.progress-container {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    position: relative;
+    border-radius: 5px;
+    background-color: rgba(0, 255, 255, 0.1); /* Faded background */
+}
+
+.progress {
+    background-color: #00ffff; /* Neon Cyan for progress */
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+    width: 0%; /* Start at 0 for animation */
+    transition: width 2s ease-in-out; /* Smooth 2-second animation for width */
+}
+
+.empty-space {
+    background-color: rgba(0, 255, 255, 0.1); /* Faded color for remaining space */
+    height: 100%;
+    flex-grow: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Queries */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-left, .about-right {
+        width: 100%;
+    }
+}
+
+/* Projects Section */
+#projects {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-secondary);
+    padding: calc(100px + 20px) 20px 50px;
+    text-align: center;
+    position: relative; /* Ensures proper positioning context for sticky */
+    z-index: 1;
+}
+
+#projects {
+    scroll-snap-align: start;
+    scroll-margin-top: 50px; /* Account for the sticky header height */
+}
+
+
+
+
+#sticky-header {
+    position: sticky;
+    top: 50px; /* Offset for main header */
+    z-index: 100; /* Ensure it appears above other content */
+    background-color: var(--color-secondary-background);
+    border-bottom: 4px solid var(--color-border-highlight);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px 15px; /* Padding for better spacing */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+#sticky-header h2 {
+    margin: 0;
+    color: var(--color-background-dark); /* Accent color for contrast */
+    font-size: 20px; /* Adjust font size for mobile */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* Filter Row Styling */
+#filter-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: transparent; /* Inherit sticky header's background */
+    padding: 5px;
+}
+
+
+#filter-row.scrolled {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow when scrolled */
+}
+
+
+.filter-tag {
+    color: var(--color-text-secondary); /* White text */
+    padding: 8px 12px; /* Larger padding for touch targets */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Address Element Resize on Selection */
+.filter-tag {
+    padding: 8px 12px; /* Consistent padding */
+    line-height: 1; /* Prevent height changes */
+}
+
+
+.filter-tag i {
+    font-size: 14px;
+}
+
+.filter-tag .hidden {
+    display: none; /* Hide check icon by default */
+}
+
+
+.filter-tag[data-skill="All"] {
+    background-color: var(--color-background-dark); /* Contrast background for All */
+    color: var(--color-accent-light); /* Text color for better visibility */
+}
+
+
+.filter-tag.selected {
+    background-color: var(--color-accent); /* Highlight background for selected filter */
+    color: var(--color-secondary-background); /* High contrast text */
+}
+
+.filter-tag .fas.fa-check {
+    display: none; /* Hide check icon by default */
+}
+
+.filter-tag.selected .fas.fa-check {
+    display: inline-block; /* Show check icon for selected tag */
+}
+
+
+.filter-tag:hover {
+    background-color: var(--color-accent-light); /* Light cyan background */
+    color: var(--color-accent); /* Dark text on hover */
+}
+
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    #sticky-header {
+        padding: 8px 10px; /* Adjust padding for smaller screens */
+        gap: 8px;
+    }
+
+    #sticky-header h2 {
+        font-size: 16px; /* Smaller font size for mobile */
+    }
+
+    #filter-row {
+        gap: 8px; /* Adjust spacing for smaller screens */
+    }
+
+    .filter-tag {
+        font-size: 12px; /* Smaller font for mobile */
+        padding: 6px 10px; /* Adjust touch padding */
+    }
+}
+
+/* Project Cards Styling */
+.project-card {
+    display: flex;
+    flex-direction: row;  /* Image on left, content on right */
+    max-width: 600px;     /* Limit card width */
+    width: 100%;
+    background-color: #020617;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+/* Project Cards Container */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;             /* Clear space between cards */
+    padding: 20px;
+}
+
+/* Ensure the card layout remains consistent */
+.project-card {
+    background: linear-gradient(135deg, #1C1C1C 0%, #232323 100%);
+    color: var(--color-text-secondary);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;  /* Ensure content isn’t cut off */
+    min-height: 350px;  /* Adjust based on your content */
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    border: 2px solid var(--color-accent);
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: -1; /* Ensure pseudo-element is below everything */
+}
+
+.project-card:hover::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.project-card.in-view {
+    border-color: var(--color-border-highlight);
+    transition: border-color 0.3s ease-in-out;
+}
+
+.project-card.in-view::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Left Column - Thumbnail */
+/* Define a fixed width and height for the image container */
+.project-left {
+    width: 100%;
+    height: 200px;   /* fixed height for desktop */
+    overflow: hidden;
+}
+
+.project-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+@media (max-width: 768px) {
+    .project-card {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    
+    .project-left {
+        height: auto;  /* Let the image size naturally */
+    }
+
+    .project-left img {
+        height: auto;
+    }
+    .project-right {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-tag,
+    .filter-tag {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+
+/* Right Column - Details */
+.project-right {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Project Title */
+.project-right h3 {
+    color: #00ffff; /* Neon Cyan for title */
+    margin-bottom: 10px;
+}
+
+/* Description */
+.project-right p {
+    margin-bottom: 20px;
+    color: #d3d3d3;
+}
+
+/* Skills Tags */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;  /* Optional: adjust spacing between tags */
+    max-width: 100%;
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+
+.skill-tag {
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin: 4px 2px;
+    background-color: #020617; /* or a consistent default */
+    color: #fff;
+    display: inline-block;
+}
+
+
+@media (max-width: 768px) {
+    .skill-tag {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+
+/* Project Creation Date */
+.project-date {
+    color: rgba(255, 255, 255, 0.6); /* Faded text */
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* Project Buttons */
+.project-buttons {
+    text-align: right; /* Align buttons to the right */
+    margin-top: 20px;
+    position: relative; /* Ensure proper stacking above card pseudo-elements */
+    z-index: 2; /* Make buttons stack above card hover effects */
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* Ensure icons and text are centered */
+    gap: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold; /* Optional: Add emphasis to button text */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+    cursor: pointer; /* Ensure button-like behavior */
+    z-index: 3; /* Ensure buttons are above all card styles */
+}
+
+.github-btn {
+    background-color: #00ffff; /* Neon Cyan */
+    color: #020617;
+    border: 2px solid transparent; /* Add transparent border for hover animation */
+}
+
+.demo-btn {
+    background-color: #020617; /* Match card background */
+    border: 2px solid #4a4a4a; /* Slightly thicker border for uniformity */
+    color: #ffffff;
+}
+
+/* Hover Effects */
+.btn:hover {
+    background-color: #00cccc; /* Darker shade for hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    border-color: #00ffff; /* Add border highlight on hover */
+}
+
+.btn:active {
+    transform: scale(0.98); /* Slight press-down effect */
+    background-color: #00aaaa; /* Slightly darker shade for active state */
+}
+
+/* Specific Adjustments for GitHub and Demo Buttons */
+.github-btn:hover {
+    background-color: #00e6e6; /* Brighter cyan on hover */
+}
+
+.demo-btn:hover {
+    border-color: #00cccc; /* Change border color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-right {
+        padding-left: 0;
+    }
+
+    .project-left img {
+        max-width: 100%;
+    }
+
+    .project-buttons {
+        text-align: center; /* Center the buttons on mobile */
+    }
+}
+
+.site-footer {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    text-align: center;
+    width: 100%; /* Full width of parent container */
+    max-width: 1200px; /* Align with .container width */
+    margin: 0 auto; /* Center footer within the parent */
+    box-sizing: border-box; /* Include padding in width calculations */
+    padding: 20px; /* Add padding */
+}
+
+
+/* Container inside the footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto; /* Center the container within the footer */
+    padding: 20px; /* Add internal padding */
+}
+
+.footer-right .social-links a {
+    color: #5ec7d3;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-right .social-links a:hover {
+    color: #00f; /* Dark blue on hover */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid var(--color-primary);
+    display: flex;
+    flex-direction: row; /* Arrange items in a single row */
+    align-items: center; /* Vertically align items */
+    justify-content: space-around; /* Add space between address and rights text */
+    gap: 10px; /* Optional: Add spacing between items */
+}
+
+.footer-address {
+    display: flex;
+    flex-direction: row; /* Ensure logo and text align horizontally */
+    align-items: center; /* Vertically align content */
+    gap: 5px; /* Add spacing between logo and text */
+}
+
+.footer-address p {
+    margin: 0; /* Remove extra margin for alignment */
+}
+
+.footer-bottom p {
+    margin: 0; /* Ensure consistent alignment */
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row; /* Ensure logo and text are aligned horizontally */
+    align-items: center; /* Center the logo and text vertically */
+    gap: 5px; /* Add spacing between the static logo and text */
+}
+
+.logo-static {
+    position: relative;
+    width: 12px;
+    height: 50px;
+    max-width: 20px;
+    max-height: 80px;
+    background: linear-gradient(180deg, #0aff00, #04ff87); /* Neon green to neon cyan gradient */
+    border-radius: 5px;
+    box-shadow: 0 0 5px #0aff00, 0 0 10px #04ff87; /* Neon glow effect */
+}
+
+.logo-static::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 30px;
+    height: 8px;
+    background: linear-gradient(90deg, #0aff00, #04ff87); /* Neon green to neon cyan gradient */
+    border-radius: 5px;
+    box-shadow: 0 0 5px #0aff00, 0 0 10px #04ff87; /* Neon glow effect */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .logo-static {
+        width: 12px;
+        height: 50px;
+    }
+
+    .logo-static::before {
+        top: 0;
+        left: -10px;
+        width: 30px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-static {
+        width: 10px;
+        height: 40px;
+    }
+
+    .logo-static::before {
+        top: 0;
+        left: -8px;
+        width: 25px;
+        height: 6px;
+    }
+}
+
+/* Style for the logo-text-static */
+.logo-text-static {
+    display: flex;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
+    color: #FF6EC7; /* White text */
+    text-shadow: 0 0 5px rgb(0, 212, 255); /* Neon cyan glow */
+    text-transform: uppercase;
+    margin-left: 5px;
+    max-width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .logo-text-static {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text-static {
+        font-size: 24px;
+    }
+}
+
+/* Styling individual spans in the logo text */
+.logo-text-static span {
+    display: inline-block;
+    color: #FF6EC7;
+    text-shadow: 0 0 5px rgb(0, 212, 255), 
+                 0 0 10px rgb(0, 212, 255 / 0.9),
+                 0 0 20px rgb(0, 212, 255 / 0.8), 
+                 0 0 40px rgb(255, 0, 255 / 0.8),
+                 0 0 60px rgb(255, 0, 255 / 0.7); /* Pink glow */
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .footer-right .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: row; /* Keep horizontal on mobile */
+        flex-wrap: wrap; /* Allow wrapping if needed on smaller screens */
+    }
+
+    nav ul li {
+        margin: 10px 10px; /* Adjust margins for smaller screens */
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Adjust font size for readability */
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li a {
+        font-size: 14px; /* Smaller font size for very small screens */
+    }
+}
